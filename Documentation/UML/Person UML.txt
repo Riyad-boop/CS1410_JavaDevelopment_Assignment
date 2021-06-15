@@ -1,0 +1,65 @@
+@startuml
+
+
+title Person UML
+
+
+class Random {
+- seed:long
+}
+
+
+class Lift {
+- inlift: ArrayList<Person>
+}
+
+class Floor {
+- Persons: ArrayList<Person>
+}
+
+
+abstract class Person {
+- size: int
+- destination floor: int
+- TotalWaittime: int
+- Complaintcounter: int
++ addprobability(boolean): boolean
++ generateDestFloor(): int
++ tick()
+}
+
+class Employee {
++ addprobability(boolean): boolean
++ generateDestFloor(): int
+}
+
+class Client {
++ addprobability(boolean): boolean
++ generateDestFloor(): int
+}
+
+class Developer{
++ addprobability(boolean): boolean
++ generateDestFloor(): int
+}
+
+class Maintanence_crew {
++ addprobability(boolean) 
++ generateDestFloor(): int
+}
+
+
+Person o-right- Random: contains
+
+Person -left- Lift : contains
+Person -up- Floor : contains
+
+Person <|-- Client
+Person <|-- Maintanence_crew 
+Person <|-- Employee
+Person <|-- Developer
+Developer <|-- Mugtome
+Developer <|-- Goggles
+
+
+@enduml

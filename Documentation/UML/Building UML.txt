@@ -1,0 +1,50 @@
+@startuml
+
+
+title Building UML
+
+
+abstract class Person {
+- rand: Random
+}
+
+class Lift {
+- Queue: HashMap <Integer, ArrayList<Person>>
+}
+
+class Floor {
+- Queue: HashMap <Integer, ArrayList<Person>>
+}
+
+class Random {
+- seed:long
+}
+
+class Building {
+- tick: float
+- p: double
+- q: double
+- seed: double
+- rand: Random
+- Floor[]: floors
+- Lift: Elevator
+- WaitingList: ArrayList<Person>
+- Queue: HashMap <Integer, WaitingList>
++ CreateFloors(int)
++ CreatePeople(int, int)
++ Generateclients(Random)
++ SpawnClients()
++ Complaintchecker(HashMap)
++ calculateAverageWait() : int
++ tick()
+}
+
+
+Building o-down- Person: contains
+Building o-down- Lift: contains
+Building o-down- Floor: contains
+Building o-left- Random: contains
+
+
+
+@enduml

@@ -1,0 +1,128 @@
+@startuml
+
+
+title Simluation UML
+
+
+abstract class Person {
+- size: int
+- destination floor: int
+- TotalWaittime: int
+- Complaintcounter: int
+- rand: Random
++ addprobability(boolean): boolean
++ generateDestFloor(): int
++ tick()
+}
+
+class Employee {
++ addprobability(boolean): boolean
++ generateDestFloor(): int
+}
+
+class Client {
++ addprobability(boolean): boolean
++ generateDestFloor(): int
+}
+
+class Developer{
++ addprobability(boolean): boolean
++ generateDestFloor(): int
+}
+
+class Maintanence_crew {
++ addprobability(boolean) 
++ generateDestFloor(): int
+}
+
+class Lift {
+- Max_capacity: int        
+- Current_capacity: int    
+- inlift: ArrayList<Person>
+- unloading: ArrayList<Person>
+- Queue: HashMap <Integer, ArrayList<Person>>
++ checkfloors(HashMap): HashMap
++ checkdestinationsinlift(): boolean
++ ReorderDestinations()
++ openDoors()
++ closeDoors()
++ ticklift(HashMap): HashMap
++ beginmoving(TreeSet)
++ gotorest()
+}
+
+ class Floor{
+- Floor_num: int 
+- Persons: ArrayList<Person>
+- WaitingList: ArrayList<Person>
+- Queue: HashMap <Integer, ArrayList<Person>>
++ arrive(Person)           
++ depart(Person)         
++ Call_Elevator()
++ Tickpeople()
++ RemovefromBuilding()
+
+
+}
+
+
+
+class Simulation{
+- tick: float
+- maxtick: float
+- p: float
+- q: float
+- seed: double
+- Building: building.
++ main(String[])
++ readinputs()
++ makekBuilding(int, int, int, float, float, long)
++ tick()
+
+}
+
+
+class Building {
+- tick: float
+- p: double
+- q: double
+- seed: double
+- rand: Random
+- Floor[]: floors
+- Lift: Elevator
+- WaitingList: ArrayList<Person>
+- Queue: HashMap <Integer, WaitingList>
++ CreateFloors(int)
++ CreatePeople(int, int)
++ Generateclients(Random)
++ SpawnClients()
++ Complaintchecker(HashMap)
++ calculateAverageWait() : int
++ tick()
+}
+     
+
+
+
+
+Person <|-- Client: inherits
+Person <|-- Maintanence_crew: inherits 
+Person <|-- Employee: inherits
+Person <|-- Developer: inherits
+Developer <|-- Mugtome: inherits
+Developer <|-- Goggles: inherits
+
+
+Simulation -down- Building : contains
+
+Building o-- Lift: contains
+Building o-- Floor: contains
+Building o-- Person: contains
+
+
+
+
+
+
+
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+
+
+title Floor UML
+
+
+abstract class Person {
+- destination floor: int
+- TotalWaittime: int
++ addprobability(boolean): boolean
++ generateDestFloor(): int
++ tick()
+}
+
+class Building {
+- HashMap <Integer, ArrayList<person>: Queue
+}
+
+ class Floors{
+- Floor_num: int 
+- btn_request: boolean
+- HashMap <Integer, ArrayList<person>: Queue
++ arrive(Person)           
++ depart(Person)         
++ Call_Elevator()
++ Tickpeople()
++ RemovefromBuilding()
+}
+
+
+Building -down- Floors: contains
+Floors -right- Person: contains
+Floors *-- Floor0
+Floors *-- Floor1
+Floors *-- Floor2
+Floors *-- Floor3
+Floors *-- Floor4
+Floors *-- Floor5
+Floors *-- Floor6
+
+
+
+
+
+
+
+
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+
+
+title Elevator UML
+
+class Building {
+- WaitingList: ArrayList<Person>
+- Queue: HashMap <Integer, ArrayList<Person>>
+}
+
+
+abstract class Person {
+-size: int
+-destinationFloor: int
+}
+
+
+class Lift {
+- Max_capacity: int        
+- Current_capacity: int    
+- inlift: ArrayList<Person>
+- unloading: ArrayList<Person>
+- Queue: HashMap <Integer, ArrayList<Person>>
++ checkfloors(HashMap): HashMap
++ checkdestinationsinlift(): boolean
++ ReorderDestinations()
++ openDoors()
++ closeDoors()
++ ticklift(HashMap): HashMap
++ beginmoving(TreeSet)
++ gotorest()
+}
+
+Building -down- Lift: contains
+Lift -right- Person: contains
+
+
+@enduml
