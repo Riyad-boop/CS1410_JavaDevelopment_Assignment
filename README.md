@@ -1,6 +1,6 @@
 # CS1410_JavaDevelopment_Assignment
 
-## 1.0 Project summart
+## 1.0 Project summary
 A simulation of the elevator of an office building. Developers, other employees, clients, and maintenance crew will all attempt to use the elevator. The purpose of the simulation is to see how much internal and external activity we can handle in the building.
 
 ## 1.1 Types of people
